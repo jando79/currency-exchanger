@@ -10,34 +10,26 @@
         <p>To get currency exchange rates, please select the types of currencies to see current exchange values.</p>
         
         <form id="select-form">
-          <select id="currency1">
-            <option value="USD">United States</option>
-            <option value="CAD">Canada</option>
-            <option value="MXN">Mexico</option>
-            <option value="BRL">Brazil</option>
-            <option value="CNY">China</option>
-            <option value="JPY">Japan</option>
-            <option value="RUB">Russia</option>
-            <option value="EUR">European Union</option>
-            <option value="GBP">United Kingdom</option>
-          </select>
-
+          <label for="amount">Amount in US Dollars: $</label>
+          <input id="amount" type="number">
+          <br>
+          <br>
+          <br>
           <select id="currency2">
-            <option value="CAD">Canada</option>
-            <option value="MXN">Mexico</option>
-            <option value="BRL">Brazil</option>
-            <option value="CNY">China</option>
-            <option value="JPY">Japan</option>
-            <option value="RUB">Russia</option>
-            <option value="EUR">European Union</option>
-            <option value="GBP">United Kingdom</option>
-            <option value="USD">United States</option>
+            <option value="CAD">Canada (CAD)</option>
+            <option value="MXN">Mexico (MXN)</option>
+            <option value="BRL">Brazil (BRL)</option>
+            <option value="CNY">China (CNY)</option>
+            <option value="JPY">Japan (JPY)</option>
+            <option value="RUB">Russia (RUB)</option>
+            <option value="EUR">European Union (EUR)</option>
+            <option value="GBP">United Kingdom (GBP)</option>
           </select>
 
           <button type="submit">Submit Selection</button>
         </form>
         
-        <p id="showResponse"></p>
+        <p id="output"></p>
       </div>
     
       
