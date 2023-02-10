@@ -29,3 +29,10 @@ function getRate() {
   });
 }
 //response4
+
+// UI
+
+function printError(request, search) {
+  document.querySelector('showResult').innerText = `There was an error accessing cuisines ${search}: ${request.status} ${request.statusText}`;
+}
+
