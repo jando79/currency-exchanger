@@ -21,9 +21,9 @@ function getRate() {
   Rates.getRate()
   .then(function (response) {
     if (response) {
-      printElements(response);
+      printRates(response);
     } else {
-      printError(response);
+      printRatesError(response);
     }
   });
 }
@@ -38,12 +38,13 @@ function printRates(data) {
    document.getElementById("RUB").innerText = 'RUB: ${data.conversion_rates.RUB}';
    document.getElementById("EUR").innerText = 'EUR: ${data.conversion_rates.EUR}';
    document.getElementById("GBP").innerText = 'GBP: ${data.conversion_rates.GBP}';
+   document.getElementById("ex-rates").removeAttribute("class");
 }
 
 
 // UI
 
-function printRatesError(errors) {
+function printRatesError(response) {
   document.querySelector('rates-error').innerText = `There was an error accessing currency exchange rates ${search}: ${request.status} ${request.statusText}`;
 }
 
@@ -67,7 +68,7 @@ function handleFormSubmission(event) {
 }
 
 window.addEventListener("load", function() {
-  document.getElementById("input-form").addEventListener("submit", handleFormSubmission);
-  this.document.getElementById("rates").addEventListener("click", getRates);
+  document.getElementById("select-form").addEventListener("submit", handleFormSubmission);
+  document.getElementById("see-rates").addEventListener("click", getRate);
 });
 
