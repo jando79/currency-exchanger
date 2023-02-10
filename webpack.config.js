@@ -18,7 +18,7 @@ module.exports = {
         new ESLintPlugin(),
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
-          title: 'Shape Tracker',
+          title: 'CURRENCY-EXCHANGER',
           template: './src/index.html',
           inject: 'body'
         }),
