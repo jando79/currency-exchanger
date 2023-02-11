@@ -44,8 +44,8 @@ function printRates(data) {
 
 // UI
 
-function printRatesError(response) {
-  document.querySelector('rates-error').innerText = `There was an error accessing currency exchange rates ${search}: ${request.status} ${request.statusText}`;
+function printRatesError(errors) {
+  document.querySelector('rates-error').innerText = `There was an error accessing currency exchange rates: ${errors[0].status} ${errors[1].result}`;
 }
 
 function printElements(data) {
@@ -57,18 +57,18 @@ function printElements(data) {
      document.getElementById("output").innerText = "No such currency.";
    } else {
      document.getElementById("output").innerText = `There was an error in currency conversion: ${noInfo[0].status} ${noInfo[1].result}`;
-   }
+  0 }
  }
 
 function handleFormSubmission(event) {
   event.preventDefault();
-  const dollar = document.getElementById("dollar").value;
   const currency = document.getElementById("currency").value;
-  getExchange(dollar, currency);
+  const dollar = document.getElementById("dollar").value;
+  getExchange(currency, dollar);
 }
 
 window.addEventListener("load", function() {
-  document.getElementById("select-form").addEventListener("submit", handleFormSubmission);
-  document.getElementById("see-rates").addEventListener("button", getRate);
+  document.getElementById("input-form").addEventListener("submit", handleFormSubmission);
+  document.getElementById("see-rates").addEventListener("click", getRate);
 });
 

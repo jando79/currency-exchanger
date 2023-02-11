@@ -1,5 +1,4 @@
-export class Exchange {
-
+export default class Exchange {
   static getExchange(currency, dollar) {
     return fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/pair/USD/${currency}/${dollar}`)
       .then(function(response) {
