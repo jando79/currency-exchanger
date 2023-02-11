@@ -10,7 +10,7 @@ function getExchange(currency, dollar) {
   Exchange.getExchange(currency, dollar)
   .then(function (response) {
     if (response) {
-      printElements(response, currency, dollar);
+      printElements(currency, dollar);
     } else {
       printError(response, currency, dollar);
     }
@@ -30,14 +30,14 @@ function getRate() {
 
 
 function printRates(data) {
-   document.getElementById("CAD").innerText = 'CAD: ${data.conversion_rates.CAD}';
-   document.getElementById("MXN").innerText = 'MXN: ${data.conversion_rates.MXN}';
-   document.getElementById("BRL").innerText = 'BRL: ${data.conversion_rates.BRL}';
-   document.getElementById("CNY").innerText = 'CNY: ${data.conversion_rates.CNY}';
-   document.getElementById("JPY").innerText = 'JPY: ${data.conversion_rates.JPY}';
-   document.getElementById("RUB").innerText = 'RUB: ${data.conversion_rates.RUB}';
-   document.getElementById("EUR").innerText = 'EUR: ${data.conversion_rates.EUR}';
-   document.getElementById("GBP").innerText = 'GBP: ${data.conversion_rates.GBP}';
+   document.getElementById("CAD").innerText = `CAD: ${data.conversion_rates.CAD}`;
+   document.getElementById("MXN").innerText = `MXN: ${data.conversion_rates.MXN}`;
+   document.getElementById("BRL").innerText = `BRL: ${data.conversion_rates.BRL}`;
+   document.getElementById("CNY").innerText = `CNY: ${data.conversion_rates.CNY}`;
+   document.getElementById("JPY").innerText = `JPY: ${data.conversion_rates.JPY}`;
+   document.getElementById("RUB").innerText = `RUB: ${data.conversion_rates.RUB}`;
+   document.getElementById("EUR").innerText = `EUR: ${data.conversion_rates.EUR}`;
+   document.getElementById("GBP").innerText = `GBP: ${data.conversion_rates.GBP}`;
    document.getElementById("ex-rates").removeAttribute("class");
 }
 
@@ -45,11 +45,11 @@ function printRates(data) {
 // UI
 
 function printRatesError(errors) {
-  document.querySelector('rates-error').innerText = `There was an error accessing currency exchange rates: ${errors[0].status} ${errors[1].result}`;
+  document.getElementById('rates-error').innerText = `There was an error accessing currency exchange rates: ${errors[0].status} ${errors[1].result}`;
 }
 
 function printElements(data) {
-  document.getElementById("output").innerText = `That will get you ${data[0].conversion_result.toFixed(2)} in ${data[0].target_code}`;
+  document.getElementById("output").innerText = `That will get you ${data.conversion_result} in ${data.target_code}`;
 }
 
  function printError(noInfo) {
