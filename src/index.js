@@ -69,6 +69,6 @@ function handleFormSubmission(event) {
 
 window.addEventListener("load", function() {
   document.getElementById("select-form").addEventListener("submit", handleFormSubmission);
-  document.getElementById("see-rates").addEventListener("click", getRate);
+  document.getElementById("see-rates").addEventListener("button", getRate);
 });
 
