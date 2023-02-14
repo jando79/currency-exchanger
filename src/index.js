@@ -14,15 +14,6 @@ function getExchange(currency, dollar) {
     printError(errorArray);
   });
 }
-  // Exchange.getExchange(response, currency, dollar)
-  // .then(function (response) {
-  //   if (response.conversion_result) {
-  //     printElements(currency, dollar);
-  //   } else {
-  //     printError(response, currency, dollar);
-  //   }
-  // }); 
-//}
 
 function getRate() {
   Rates.getRate()
@@ -65,7 +56,7 @@ function printElements(data) {
    } else {
      document.getElementById("output").innerText = `There was an error in currency conversion: ${noInfo[0].status} ${noInfo[1].result}`;
   0 }
- }
+}
 
 function handleFormSubmission(event) {
   event.preventDefault();
