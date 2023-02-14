@@ -7,15 +7,22 @@ import Rates from './js/rates.js';
 //Business Logic
 
 function getExchange(currency, dollar) {
-  Exchange.getExchange(currency, dollar)
-  .then(function (response) {
-    if (response) {
-      printElements(currency, dollar);
-    } else {
-      printError(response, currency, dollar);
-    }
-  }); 
+  let promise = Exchange.getExchange(currency, dollar);
+  promise.then(function(currencyDataArray) {
+    printElements(currencyDataArray);
+  }, function(errorArray) {
+    printError(errorArray);
+  });
 }
+  // Exchange.getExchange(response, currency, dollar)
+  // .then(function (response) {
+  //   if (response.conversion_result) {
+  //     printElements(currency, dollar);
+  //   } else {
+  //     printError(response, currency, dollar);
+  //   }
+  // }); 
+//}
 
 function getRate() {
   Rates.getRate()
@@ -49,7 +56,7 @@ function printRatesError(errors) {
 }
 
 function printElements(data) {
-  document.getElementById("output").innerText = `That will get you ${data.conversion_result} in ${data.target_code}`;
+  document.getElementById("output").innerText = `That will get you ${data[0].conversion_result.toFixed(2)} in ${data[0].target_code}`;
 }
 
  function printError(noInfo) {
